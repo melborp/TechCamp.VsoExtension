@@ -14,6 +14,8 @@ Format: Task "title"
 - Work item form action is written in JavaScript (action.html)
 - Task adding logic and summary is written in TypeScript (app.ts)
 
+Slides can be found at [docs.com](https://doc.co/MWUQ6q)
+
 ####Hope you find this useful!
 
 Taavi Koosaar
