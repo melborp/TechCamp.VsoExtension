@@ -1,0 +1,10 @@
+﻿{
+"package": {
+		"manifestGlobs": ["vss-extension.json"]
+	},
+	"publish": {
+		"galleryUrl": "https://app.market.visualstudio.com",
+		"token": "",
+		"vsixPath": "c:\SomePath\TechCamp.Demo.Vso.Extensions\TechCamp.Demo.Vso.Extensions.vsix"
+	}
+}

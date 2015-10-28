@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TechCamp Demo - Task Generator</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="sdk/scripts/VSS.SDK.js"></script>
+</head>
+<body>
+
+
+    <h1>TechCamp Demo - Task Generator</h1>
+
+<div id="content"></div>
+    <script type="text/javascript">
+    // Initialize the VSS sdk
+        VSS.init({
+            explicitNotifyLoaded: true,
+        setupModuleLoader: true,
+        moduleLoaderConfig: {
+            paths: {
+                "Scripts": "scripts"
+            }
+        }
+    });
+
+    // Wait for the SDK to be initialized
+    VSS.ready(function () {
+        VSS.require(["Scripts/app"], function (app) {
+            VSS.notifyLoadSucceeded();
+            app.taskGenerator.processPbiDescription();
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>TypeScript HTML App</title>
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <script src="sdk/scripts/VSS.SDK.js"></script>
+</head>
+<body>
+    <div id="content"> This will never be seen</div>
+    <script type="text/javascript">
+    
+    VSS.init();
+
+    var generateTasksAndResultDialog = (function () {
+        "use strict";
+        return {
+            execute: function (actionContext) {
+                //Calculate the size of modal popup window
+                var widthPercentage = 80;
+                var heightPercentage = 75;
+
+                var newWidth = parseInt((window.screen.width / 100 * widthPercentage).toString());
+                var newHeight = parseInt((window.screen.height / 100 * heightPercentage).toString());
+
+                //Dialog options
+                var opts = {
+                    width: newWidth,
+                    height: newHeight,
+                    title: "Task generation and result",
+                    buttons: null
+                };
+
+                var extensionContext = VSS.getExtensionContext();
+                var contributionConfig =
+                {
+                    action: actionContext
+                };
+                VSS.getService(VSS.ServiceIds.Dialog).then(function (dlg) {
+                    dlg.openDialog(extensionContext.publisherId + "." + extensionContext.extensionId + ".generate-tasks-from-pbi-dialog", opts, contributionConfig);
+                });
+            }
+        };
+    }());
+
+    VSS.register("generate-tasks-from-pbi-description-button", generateTasksAndResultDialog);
+</script>
+</body>
+</html>

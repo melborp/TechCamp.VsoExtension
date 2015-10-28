@@ -1,0 +1,46 @@
+{
+  "manifestVersion": 1,
+  "id": "taavik-vsoextensions-techcamp-demo",
+  "version": "1.0.0",
+  "name": "Tech Camp Demo",
+  "scopes": [ "vso.work", "vso.work_write" ],
+  "description": "This will allow generation of work items based on PBI description.",
+  "baseUri": "https://techcamp-demo-vsoextensions.azurewebsites.net",
+  "publisher": "melborp-vso",
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "tags": [
+    "Productivity"
+  ],
+  "categories": [
+    "Productivity"
+  ],
+  "contributions": [
+    {
+      "id": "generate-tasks-from-pbi-description-button",
+      "type": "ms.vss-web.action",
+      "description": "Generate tasks",
+      "targets": [
+        "ms.vss-work-web.work-item-toolbar-menu"
+      ],
+      "properties": {
+        "text": "Gen. Tasks",
+        "title": "Gen. Tasks for PBI",
+        "toolbarText": "Gen. Tasks",
+        "icon": "img/ZoomIn.png",
+        "group": "actions",
+        "uri": "action.html",
+        "registeredObjectId": "generate-tasks-from-pbi-description-button"
+      }
+    },
+    {
+      "id": "generate-tasks-from-pbi-dialog",
+      "type": "ms.vss-web.control",
+      "targets": [ ".controls" ],
+      "properties": {
+        "uri": "index.html"
+      }
+    }
+  ]
+}
